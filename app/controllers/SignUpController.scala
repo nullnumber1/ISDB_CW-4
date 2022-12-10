@@ -24,10 +24,12 @@ class SignUpController @Inject()(components: SilhouetteControllerComponents)(imp
             )
           case None =>
             val authInfo = passwordHasherRegistry.current.hash(newUser.password.get)
-            val user = newUser.copy(password = Some(authInfo.password))
+            val user = newUser.copy(password = Some(authInfo.password), poAmount = Some(0), characterId = Some(1), xCoordinate = Some(0), yCoordinate = Some(0))
             userService.save(user).map(u => Ok(User.toJson(u.copy(password = None))))
         }
       case _ =>
+        //        logger.error(s"Invalid JSON for user: ${request.body.asJson}")
+        logger.error(s"Invalid JSON for user: ${request.body.asJson}")
         Future.successful(
           BadRequest(ErrorHandler.createJson(
             request.id.toString,
