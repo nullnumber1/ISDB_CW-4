@@ -11,7 +11,7 @@ import play.api.libs.json.{Json, JsValue, OFormat}
  * @param fight How much po character can remove from the opponent.
  * @param firingRange Range of attack.
  */
-case class Character(id: Long, name: String, moving: Int, fight: Int, firingRange: Int)
+case class Character(id: Int, name: String, moving: Int, fight: Int, firingRange: Int)
 
 /**
  * Companion object of `Character`, full of util methods for the class including JSON conversions.
