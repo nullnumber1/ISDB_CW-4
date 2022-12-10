@@ -15,7 +15,6 @@ create table users
 (
     user_id      serial primary key,
     username     varchar(30)                                  not null,
-    name         varchar(30)                                  not null,
     password     varchar(128)                                 not null,
     po_amount    smallint default 0                           not null,
     character_id integer references characters (character_id) not null,

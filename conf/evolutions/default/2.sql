@@ -3,7 +3,8 @@
 -- !Ups
 
 insert into characters (name, moving, fight, firing_range)
-VALUES ('Энни', 2, 2, 3),
+VALUES ('Default', 0, 0, 0),
+       ('Энни', 2, 2, 3),
        ('Доктор Ксенон Блум', 2, 2, 2),
        ('Рик', 3, 2, 3),
        ('Пончо', 2, 3, 2),
