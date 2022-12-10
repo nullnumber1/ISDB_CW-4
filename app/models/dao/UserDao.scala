@@ -2,7 +2,7 @@ package models.dao
 
 import com.mohiva.play.silhouette.api.LoginInfo
 import models.User
-import models.tables.Users
+import models.tables.UsersTable
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
 
@@ -26,7 +26,7 @@ class UserDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
    * @return `User` entity from database
    */
   def find(loginInfo: LoginInfo): Future[Option[User]] =
-    db.run(Users.filterByUsername(loginInfo.providerKey).result.headOption)
+    db.run(UsersTable.filterByUsername(loginInfo.providerKey).result.headOption)
 
   /**
    * Saves new `User` entity to database.
@@ -34,7 +34,7 @@ class UserDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
    * @param user New `User` entity
    * @return Added `User` entity
    */
-  def save(user: User): Future[User] = db.run(Users returning Users += user)
+  def save(user: User): Future[User] = db.run(UsersTable returning UsersTable += user)
 
   /**
    * Updates user in database.
@@ -43,6 +43,6 @@ class UserDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
    * @return Updated `User` entity
    */
   def update(user: User): Future[User] =
-    db.run(Users.filterByUsername(user.username).update(user).map(_ => user))
+    db.run(UsersTable.filterByUsername(user.username).update(user).map(_ => user))
 
 }

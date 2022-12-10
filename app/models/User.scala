@@ -10,14 +10,13 @@ import play.api.libs.json.{JsValue, Json, OFormat}
  * Model of a record in the users relation.
  *
  * @param username    Unique identifier for the user
- * @param name        The name of the user
  * @param poAmount    The amount of points of the user
  * @param characterId The id of the character the user is using
  * @param xCoordinate The x coordinate of the user
  * @param yCoordinate The y coordinate of the user
  * @param password    The password to complete authentication of a user (Optional)
  */
-case class User(username: String, name: String, password: Option[String] = None, poAmount: Int, characterId: Int, xCoordinate: Byte, yCoordinate: Byte) extends Identity {
+case class User(username: String, password: Option[String] = None, poAmount: Option[Int], characterId: Option[Int], xCoordinate: Option[Byte], yCoordinate: Option[Byte]) extends Identity {
   def loginInfo: LoginInfo = LoginInfo(CredentialsProvider.ID, username)
 
   def passwordInfo: PasswordInfo = PasswordInfo(BCryptSha256PasswordHasher.ID, password.get)
