@@ -10,5 +10,9 @@
 POST    /register                   controllers.SignUpController.signUp
 POST    /login                      controllers.SignInController.signIn
 
+# Test
+GET     /v1/cards                   controllers.TestController.getAll
+GET     /v1/card/:id                controllers.TestController.getCard(id: Int)
+
 # Map static resources from the /public folder to the /assets URL path
 # GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
