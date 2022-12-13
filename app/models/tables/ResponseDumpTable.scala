@@ -1,6 +1,6 @@
 package models.tables
 
-import models.ResponseDump
+import models.DumpedResponse
 import slick.lifted.ProvenShape
 import slick.jdbc.H2Profile.api._
 
@@ -9,12 +9,12 @@ import slick.jdbc.H2Profile.api._
  *
  * @param tag The table tag
  */
-class ResponseDumpTable(tag: Tag) extends Table[ResponseDump](tag, "response_dump") {
-  def responseId: Rep[Int] = column[Int]("response_id", O.PrimaryKey)
+class ResponseDumpTable(tag: Tag) extends Table[DumpedResponse](tag, "response_dump") {
+  def id: Rep[Int] = column[Int]("response_id", O.PrimaryKey)
 
-  def responseIdConstraint = foreignKey("response_id_fk", responseId, OrganismResponsesTable)(_.id)
+  def responseIdConstraint = foreignKey("response_id_fk", id, OrganismResponsesTable)(_.id)
 
-  def * : ProvenShape[ResponseDump] = responseId <> (ResponseDump.apply, ResponseDump.unapply)
+  def * : ProvenShape[DumpedResponse] = id <> (DumpedResponse.apply, DumpedResponse.unapply)
 }
 
 object ResponseDumpTable extends TableQuery[ResponseDumpTable](new ResponseDumpTable(_)) {
