@@ -19,9 +19,9 @@ class OrganismResponsesTable(tag: Tag) extends Table[OrganismResponse](tag, "org
     s => ResponseTypes.withName(s)
   )
 
-  def id: Rep[Int] = column[Int]("id", O.PrimaryKey, O.AutoInc)
+  def id: Rep[Int] = column[Int]("response_id", O.PrimaryKey, O.AutoInc)
 
-  def rType: Rep[ResponseTypes] = column[ResponseTypes]("r_type")
+  def rType: Rep[ResponseTypes] = column[ResponseTypes]("response_type")
 
   def name: Rep[String] = column[String]("name", O.Unique)
 

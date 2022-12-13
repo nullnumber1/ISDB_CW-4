@@ -10,7 +10,7 @@ import slick.jdbc.H2Profile.api._
  * @param tag The table tag
  */
 class CharactersTable(tag: Tag) extends Table[Character](tag, "characters") {
-  def id: Rep[Int] = column[Int]("id", O.PrimaryKey, O.AutoInc)
+  def id: Rep[Int] = column[Int]("character_id", O.PrimaryKey, O.AutoInc)
   def name: Rep[String] = column[String]("name", O.Unique)
   def moving: Rep[Int] = column[Int]("moving")
   def fight: Rep[Int] = column[Int]("fight")

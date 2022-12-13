@@ -10,7 +10,7 @@ import slick.jdbc.H2Profile.api._
  * @param tag The table tag
  */
 class UsersTable(tag: Tag) extends Table[User](tag, "users") {
-  def id: Rep[Int] = column[Int]("id", O.PrimaryKey, O.AutoInc)
+  def id: Rep[Int] = column[Int]("user_id", O.PrimaryKey, O.AutoInc)
   def username: Rep[String] = column[String]("username")
 
   def password: Rep[Option[String]] = column[Option[String]]("password")

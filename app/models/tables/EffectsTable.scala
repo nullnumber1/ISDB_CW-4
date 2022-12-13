@@ -10,7 +10,7 @@ import slick.jdbc.H2Profile.api._
  * @param tag The table tag
  */
 class EffectsTable(tag: Tag) extends Table[Effect](tag, "effects") {
-  def id: Rep[Int] = column[Int]("id", O.PrimaryKey, O.AutoInc)
+  def id: Rep[Int] = column[Int]("effect_id", O.PrimaryKey, O.AutoInc)
 
   def userId: Rep[Int] = column[Int]("user_id")
 
