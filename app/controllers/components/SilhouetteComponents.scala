@@ -13,9 +13,14 @@ trait SilhouetteComponents {
   type IdentityType = EnvType#I
 
   def userService: UserService
+
   def authInfoRepository: AuthInfoRepository
+
   def passwordHasherRegistry: PasswordHasherRegistry
+
   def clock: Clock
+
   def credentialsProvider: CredentialsProvider
+
   def silhouette: Silhouette[JWTEnvironment]
 }

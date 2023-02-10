@@ -3,9 +3,6 @@
 # https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
-# APIs
-# Empty for now
-
 # Authentication
 POST    /register                   controllers.SignUpController.signUp
 POST    /login                      controllers.SignInController.signIn

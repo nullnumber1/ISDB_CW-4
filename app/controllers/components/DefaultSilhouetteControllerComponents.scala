@@ -13,7 +13,7 @@ import utils.auth.JWTEnvironment
 import javax.inject.Inject
 import scala.concurrent.ExecutionContext
 
-final  case class DefaultSilhouetteControllerComponents @Inject()
+final case class DefaultSilhouetteControllerComponents @Inject()
 (silhouette: Silhouette[JWTEnvironment],
  userService: UserService,
  authInfoRepository: AuthInfoRepository,

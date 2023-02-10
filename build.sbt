@@ -26,7 +26,7 @@ libraryDependencies ++= Seq(
   "com.mohiva" %% "play-silhouette-persistence" % playSilhouetteVersion,
   "com.mohiva" %% "play-silhouette-crypto-jca" % playSilhouetteVersion,
   "net.codingwell" %% "scala-guice" % "5.1.0",
-  "org.postgresql" % "postgresql" % "42.5.1"
+  "org.postgresql" % "postgresql" % "42.5.3"
 )
 
 enablePlugins(JavaAppPackaging)
