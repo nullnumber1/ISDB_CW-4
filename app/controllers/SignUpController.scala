@@ -5,13 +5,14 @@ import com.mohiva.play.silhouette.impl.providers.CredentialsProvider
 import controllers.components.SilhouetteControllerComponents
 import handlers.ErrorHandler
 import models.User
-import play.api.mvc.{Action, AnyContent, Request}
+import play.api.mvc.{Action, AnyContent, EssentialAction, Request}
 
 import javax.inject.Inject
 import scala.concurrent.{ExecutionContext, Future}
 
 class SignUpController @Inject()(components: SilhouetteControllerComponents)(implicit ec: ExecutionContext)
   extends SilhouetteController(components) {
+
   def signUp: Action[AnyContent] = UnsecuredAction.async { implicit request: Request[AnyContent] =>
     request.body.asJson.flatMap(User.fromJson) match {
       case Some(newUser) if newUser.password.isDefined =>

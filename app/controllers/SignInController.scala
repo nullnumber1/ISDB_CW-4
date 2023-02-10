@@ -36,9 +36,11 @@ class SignInController @Inject()(components: SilhouetteControllerComponents)(imp
           }
         }.recover {
           case _: ProviderException =>
-            BadRequest(ErrorHandler.createJson(request.id.toString, "Invalid user credentials."))
+            logger.error(s"Invalid user credentials: ${request.body.asJson}")
+            Forbidden(ErrorHandler.createJson(request.id.toString, "Invalid user credentials."))
         }
       case None =>
+        logger.error(s"Invalid JSON for login: ${request.body.asJson}")
         Future.successful(
           BadRequest(ErrorHandler.createJson(request.id.toString, "Invalid JSON for login."))
         )
