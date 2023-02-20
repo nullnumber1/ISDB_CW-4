@@ -67,3 +67,156 @@ button[type="submit"] {
     transform: translateY(2px);
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
+
+.username {
+    color: #7f00ff;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 20px;
+    align-self: flex-start;
+}
+
+.sign-out-btn {
+    background-color: #1f1f1f;
+    color: #7f00ff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #7f00ff;
+}
+
+.sign-out-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.enter-the-game-btn {
+    padding: 20px 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#username-display {
+    color: #fff;
+}
+
+.enter-game-btn {
+    padding: 10px 20px;
+    width: 150px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    background-color: #7f00ff;
+    color: #fff;
+}
+
+.enter-game-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.signout-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#signout-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    background-color: #7f00ff;
+    color: #fff;
+}
+
+#signout-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.message-container {
+    background-color: #fff;
+    width: 80%;
+    max-width: 600px;
+    height: 400px;
+    border-radius: 20px;
+    padding: 20px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.message-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.message-list li {
+    margin: 10px 0;
+}
+
+.player-message {
+    color: #1f1f1f;
+    background-color: #7f00ff;
+    border-radius: 20px;
+    padding: 10px 15px;
+    max-width: 80%;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.ai-message {
+    color: #fff;
+    background-color: #1f1f1f;
+    border-radius: 20px;
+    padding: 10px 15px;
+    max-width: 80%;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    margin-right: 10px;
+    width: 70%;
+    max-width: 500px;
+}
+
+.send-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    background-color: #7f00ff;
+    color: #fff;
+}
+
+.send-btn:hover {
+    background-color: #fff;
+    color: #7f00ff;
+}
