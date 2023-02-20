@@ -4,14 +4,17 @@
 # ~~~~
 
 # Authentication
-POST    /register                   controllers.SignUpController.signUp
-POST    /login                      controllers.SignInController.signIn
+POST           /register              controllers.SignUpController.signUp
+POST           /login                 controllers.SignInController.signIn
 
 # Test
-GET     /v1/cards                   controllers.TestController.getAll
-GET     /v1/card/:id                controllers.TestController.getCard(id: Int)
-GET     /v1/cards/handout           controllers.TestController.handOutCards
-DELETE  /v1/cards/clear             controllers.TestController.clearCards
+GET            /v1/init               controllers.StartGameController.initGame
+GET            /v1/cards              controllers.StartGameController.getAllCardsFromField
+GET            /v1/card/:id           controllers.StartGameController.getCard(id: Int)
+DELETE         /v1/cards/clear        controllers.StartGameController.clearCards
+POST           /v1/action             controllers.StartGameController.performAction
+OPTIONS        /*url                  controllers.OptionsController.options(url: String)
+OPTIONS        /                      controllers.OptionsController.rootOptions
 
 # Map static resources from the /public folder to the /assets URL path
 # GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
