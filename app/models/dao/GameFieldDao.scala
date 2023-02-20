@@ -25,6 +25,8 @@ class GameFieldDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvi
 
   def insert(gameCell: GameCell): Future[Unit] = db.run(GameCells += gameCell).map(_ => ())
 
+  def getAll: Future[Seq[GameCell]] = db.run(GameFieldTable.result)
+
   def delete(id: Int): Future[Unit] = db.run(GameCells.filter(_.id === id).delete).map(_ => ())
 
   def update(gameCell: GameCell): Future[Unit] = {

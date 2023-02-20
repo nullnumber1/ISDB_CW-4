@@ -1,5 +1,7 @@
 package models
 
+import play.api.libs.json.{JsValue, Json, OFormat}
+
 /**
  * Model of a game cell.
  *
@@ -18,5 +20,11 @@ case class GameCell(id: Int, xCoordinate: Byte, yCoordinate: Byte, cardId: Int, 
  *
  */
 object GameCell {
+  implicit private val jsonFormat: OFormat[GameCell] = Json.format[GameCell]
 
+  def fromJson(json: JsValue): Option[GameCell] = json.validate.asOpt
+
+  def toJson(square: GameCell): JsValue = Json.toJson(square)
+
+  def toJson(squares: Seq[GameCell]): JsValue = Json.toJson(squares)
 }

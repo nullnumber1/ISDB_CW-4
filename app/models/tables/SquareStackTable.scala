@@ -1,8 +1,10 @@
 package models.tables
 
 import models.Square
-import slick.lifted.{ProvenShape, Tag}
 import slick.jdbc.H2Profile.api._
+import slick.lifted.{ProvenShape, Tag}
+
+import scala.concurrent.Future
 
 class SquareStackTable(tag: Tag) extends Table[Square](tag, "square_stack") {
   def id = column[Int]("card_id", O.PrimaryKey, O.AutoInc)
@@ -32,4 +34,8 @@ class SquareStackTable(tag: Tag) extends Table[Square](tag, "square_stack") {
 
 object SquareStackTable extends TableQuery[SquareStackTable](new SquareStackTable(_)) {
   def filterById(id: Int): Query[SquareStackTable, Square, Seq] = this.filter(_.id === id)
+
+  def findByName(name: String): Query[SquareStackTable, Square, Seq] = {
+    this.filter(_.name === name)
+  }
 }

@@ -1,7 +1,7 @@
 package models.dao
 
-import models.Square
-import models.tables.SquareStackTable
+import models.tables.{GameFieldTable, SquareStackTable}
+import models.{GameCell, Square}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
 
@@ -10,8 +10,10 @@ import scala.concurrent.{ExecutionContext, Future}
 
 class SquareStackDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext)
   extends HasDatabaseConfigProvider[JdbcProfile] {
+
   import profile.api._
 
+  //get all cards
   def getAll: Future[Seq[Square]] = db.run(SquareStackTable.result)
 
   /**
@@ -22,4 +24,22 @@ class SquareStackDao @Inject()(protected val dbConfigProvider: DatabaseConfigPro
    */
   def findById(id: Int): Future[Option[Square]] =
     db.run(SquareStackTable.filterById(id).result.headOption)
+
+  def buildSquare(name: String, coordinateX: Int, coordinateY: Int): Future[Boolean] = {
+    db.run(SquareStackTable.findByName(name).result.headOption).flatMap {
+      case Some(square) =>
+        val gameFieldSquare = GameCell(
+          id = 1,
+          xCoordinate = coordinateX.toByte,
+          yCoordinate = coordinateY.toByte,
+          cardId = square.id,
+          diseaseId = None,
+          userId = None,
+          markerId = None
+        )
+        db.run(GameFieldTable returning GameFieldTable += gameFieldSquare).map(_ => true)
+      case None =>
+        Future.successful(false)
+    }
+  }
 }

@@ -10,7 +10,7 @@ import slick.jdbc.H2Profile.api._
  * @param tag The table tag
  */
 class GameFieldTable(tag: Tag) extends Table[GameCell](tag, "game_field") {
-  def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
+  def id = column[Int]("field_id", O.PrimaryKey, O.AutoInc)
 
   def xCoordinate = column[Byte]("x_coordinate")
 
