@@ -25,7 +25,7 @@ class SignInController @Inject()(components: SilhouetteControllerComponents)(imp
                 result <- authenticatorService.embed(token, Ok)
               } yield {
                 logger.info(s"User ${loginInfo.providerKey} has signed in successfully!")
-                result
+                Ok(token)
               }
             case None =>
               Future.successful(

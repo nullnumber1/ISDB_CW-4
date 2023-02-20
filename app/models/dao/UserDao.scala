@@ -44,5 +44,4 @@ class UserDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
    */
   def update(user: User): Future[User] =
     db.run(UsersTable.filterByUsername(user.username).update(user).map(_ => user))
-
 }
